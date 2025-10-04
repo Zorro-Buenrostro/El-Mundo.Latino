@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Periódico — Morat: Ya es Mañana</title>
+
+    <!-- Fuentes Google -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Oswald:wght@300;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Estilos externos -->
+    <link rel="stylesheet" href="estilos.css" />
+  </head>
+  <body>
+    <!-- Filtro SVG para efecto halftone -->
+    <svg width="0" height="0" style="position: absolute">
+      <filter id="halftone">
+        <feColorMatrix
+          type="matrix"
+          values="0.2126 0.7152 0.0722 0 0
+                0.2126 0.7152 0.0722 0 0
+                0.2126 0.7152 0.0722 0 0
+                0 0 0 1 0"
+          result="gray"
+        />
+        <feComponentTransfer result="poster">
+          <feFuncA type="table" tableValues="0 1" />
+        </feComponentTransfer>
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.8"
+          numOctaves="1"
+          stitchTiles="stitch"
+          result="noise"
+        />
+        <feDisplacementMap
+          in="gray"
+          in2="noise"
+          scale="6"
+          xChannelSelector="R"
+          yChannelSelector="G"
+        />
+        <feComponentTransfer>
+          <feFuncR type="table" tableValues="0 0 1" />
+          <feFuncG type="table" tableValues="0 0 1" />
+          <feFuncB type="table" tableValues="0 0 1" />
+        </feComponentTransfer>
+      </filter>
+    </svg>
+
+    <div class="paper">
+      <header class="masthead">
+        <div class="meta">
+          Octubre, 2025 &nbsp;|&nbsp; Edición Especial Morat
+        </div>
+        <div class="title">YA ES MAÑANA</div>
+        <div class="meta">Tiraje: 10,000 &nbsp;|&nbsp; Bogotá, Colombia</div>
+      </header>
+
+      <main>
+        <section class="lead">
+          <div>
+            <div class="hero">
+              <img
+                src="images/hero.jpg"
+                alt="Morat Ya Es Mañana"
+                class="halftone"
+              />
+            </div>
+
+            <div class="headline">
+              <h1>YA ES MAÑANA</h1>
+              <p class="smallcaps">
+                El álbum que marca una nueva etapa creativa de Morat
+              </p>
+            </div>
+          </div>
+
+          <aside>
+            <h3>Opinión</h3>
+            <p>
+              “Ya es mañana” es un álbum que combina melancolía, esperanza y
+              madurez artística. Morat logra conectar lo cotidiano con lo
+              trascendente, explorando sonidos más conceptuales sin perder su
+              esencia pop-folk.
+            </p>
+
+            <div class="lista">
+              <strong>Lista de canciones</strong>
+              <ol>
+                <li>YA ES MAÑANA — 04:58</li>
+                <li>ECLIPSE SOLAR — 03:13</li>
+                <li>DOMINGO DE BAJÓN — 02:56</li>
+                <li>SIN TI — 03:45</li>
+              </ol>
+            </div>
+          </aside>
+        </section>
+
+        <!-- 🎧 Reproductor musical automático -->
+        <section class="music-player">
+          <h2>Escucha el álbum completo</h2>
+          <audio id="player" controls autoplay></audio>
+        </section>
+
+        <script>
+          const canciones = [
+            "musica/01-ya-es-manana.mp3",
+            "musica/02-eclipse-solar.mp3",
+            "musica/03-domingo-de-bajon.mp3",
+            "musica/04-sin-ti.mp3",
+          ];
+
+          let actual = 0;
+          const player = document.getElementById("player");
+
+          // Cargar primera canción
+          player.src = canciones[actual];
+          player.play();
+
+          // Reproducir siguiente al terminar
+          player.addEventListener("ended", () => {
+            actual = (actual + 1) % canciones.length;
+            player.src = canciones[actual];
+            player.play();
+          });
+        </script>
+
+        <section class="sections">
+          <div class="section-title">Noticias</div>
+          <div class="cards">
+            <article class="card">
+              <div class="thumb">
+                <img src="images/thumb1.jpg" alt="Concierto Morat" />
+              </div>
+              <h3>Morat anuncia gira mundial 2025</h3>
+              <p>
+                La banda confirma su regreso a escenarios internacionales con su
+                tour <em>Ya es Mañana</em>.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="thumb">
+                <img src="images/thumb2.jpg" alt="Estudio" />
+              </div>
+              <h3>El proceso creativo del álbum</h3>
+              <p>
+                Grabado entre Madrid y Bogotá, el disco combina folk,
+                sintetizadores y experimentación sonora.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="thumb">
+                <img src="images/thumb3.jpg" alt="Fans" />
+              </div>
+              <h3>Fans reaccionan al nuevo sonido</h3>
+              <p>
+                Los seguidores destacan la madurez de las letras y la evolución
+                de la banda.
+              </p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        Diseño: Taller de Tipografía — Inspirado en prensa vintage y estética
+        zine.
+        <br />Fotografía y material cortesía de Morat & Universal Music.
+      </footer>
+    </div>
+  </body>
+</html>
