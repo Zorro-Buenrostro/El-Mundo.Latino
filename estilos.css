@@ -1,217 +1,170 @@
-/* ============================
-   ESTILOS GENERALES
-============================ */
+* {
+  box-sizing: border-box;
+}
+html,
 body {
   margin: 0;
-  background: #f6f3ec;
-  font-family: "Oswald", sans-serif;
-  color: #111;
-  line-height: 1.6;
-}
-
-/* Efecto halftone */
-.halftone {
-  filter: url(#halftone);
-}
-
-/* ============================
-   CONTENEDOR PRINCIPAL
-============================ */
-.paper {
-  max-width: 1100px;
-  margin: 40px auto;
   background: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 40px;
-  border: 2px solid #000;
+  color: #000;
+  font-family: "Oswald", Arial, sans-serif;
 }
-
-/* ============================
-   ENCABEZADO
-============================ */
+.paper {
+  max-width: 980px;
+  margin: 24px auto;
+  padding: 18px;
+  border: 6px solid #000;
+}
 .masthead {
-  text-align: center;
-  border-bottom: 3px solid #000;
-  margin-bottom: 30px;
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 8px solid #000;
+  padding: 8px 0;
 }
-
+.masthead .title {
+  font-family: "Playfair Display", serif;
+  font-weight: 900;
+  letter-spacing: 2px;
+  font-size: 56px;
+}
 .masthead .meta {
-  font-size: 14px;
-  letter-spacing: 0.5px;
+  font-size: 12px;
   text-transform: uppercase;
 }
-
-.title {
-  font-family: "Libre Baskerville", serif;
-  font-weight: 900;
-  font-size: 64px;
-  letter-spacing: 2px;
-  margin: 10px 0;
-}
-
-.side-photo-left img,
-.side-photo-right img {
-  border: 2px solid black;
-  border-radius: 4px;
-}
-
-/* ============================
-   PORTADA PRINCIPAL
-============================ */
 .lead {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 18px;
+  padding-top: 18px;
 }
-
+.hero {
+  border: 6px solid #000;
+  padding: 6px;
+  background: #fff;
+}
 .hero img {
   width: 100%;
-  max-width: 600px;
   height: auto;
-  border: 3px solid #000;
-  border-radius: 6px;
   display: block;
-  margin-bottom: 10px;
+  mix-blend-mode: multiply;
 }
-
+.halftone {
+  filter: url(#halftone) grayscale(1) contrast(1.1);
+}
+.headline {
+  margin-top: 12px;
+  padding: 18px 12px;
+  border: 6px solid #000;
+  background: #fff;
+}
 .headline h1 {
-  font-family: "Playfair Display", serif;
-  font-size: 50px;
-  margin: 10px 0;
+  font-size: 72px;
+  line-height: 0.9;
+  margin: 0;
   text-transform: uppercase;
 }
-
-.smallcaps {
-  font-variant: small-caps;
-  font-size: 16px;
-  color: #555;
+.headline p {
+  margin: 8px 0 0;
+  font-size: 14px;
 }
-
-/* ============================
-   COLUMNA OPINIÓN / LISTA
-============================ */
 aside {
-  flex: 1;
-  min-width: 250px;
-  background: #f3f3f3;
-  border: 2px solid #000;
-  padding: 15px;
-  border-radius: 4px;
+  border: 6px solid #000;
+  padding: 10px;
 }
-
 aside h3 {
-  font-family: "Playfair Display", serif;
+  margin: 0;
   font-size: 20px;
-  margin-bottom: 10px;
 }
-
-.lista ol {
-  padding-left: 20px;
-  margin-top: 10px;
+aside p {
+  font-size: 12px;
+  margin-top: 8px;
 }
-
-.lista li {
-  margin-bottom: 5px;
+.lista {
+  border-top: 4px solid #000;
+  margin-top: 12px;
+  padding-top: 8px;
+  font-size: 12px;
 }
-
-/* ============================
-   MÚSICA
-============================ */
-.music-player {
-  margin-top: 30px;
-  padding: 15px;
-  border-top: 2px solid #000;
-  border-bottom: 2px solid #000;
-  background: #fdfdfd;
-  text-align: center;
-}
-
-.music-player h2 {
-  font-family: "Playfair Display", serif;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-
-/* ============================
-   SECCIONES Y CARDS
-============================ */
 .section-title {
-  font-size: 28px;
   font-family: "Playfair Display", serif;
+  font-size: 42px;
+  border-top: 6px solid #000;
+  padding-top: 10px;
+  margin-bottom: 12px;
   text-transform: uppercase;
-  margin: 30px 0 20px;
-  border-bottom: 3px solid #000;
-  display: inline-block;
 }
-
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
 }
-
 .card {
-  border: 2px solid #000;
-  padding: 15px;
-  border-radius: 6px;
+  border: 4px solid #000;
+  padding: 8px;
   background: #fff;
-  transition: transform 0.2s ease;
 }
-
-.card:hover {
-  transform: scale(1.02);
+.card .thumb {
+  height: 120px;
+  overflow: hidden;
+  border-bottom: 4px solid #000;
+  margin-bottom: 8px;
 }
-
 .card img {
   width: 100%;
-  height: auto;
-  border-radius: 4px;
-  border: 1px solid #000;
-  margin-bottom: 10px;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1);
 }
-
-/* ============================
-   PIE DE PÁGINA
-============================ */
-.footer {
-  text-align: center;
-  font-size: 14px;
-  margin-top: 40px;
-  padding-top: 20px;
-  border-top: 2px solid #000;
-  color: #333;
-  line-height: 1.4;
+.card h3 {
+  font-size: 16px;
+  margin: 6px 0 0;
+  font-weight: 700;
 }
-
-/* ============================
-   IMÁGENES RANDOM DE MORAT
-============================ */
-.random-photo {
+.card p {
+  font-size: 12px;
+  margin: 6px 0 0;
+}
+.music-player {
+  margin-top: 24px;
+  border-top: 6px solid #000;
+  padding-top: 10px;
+}
+.music-player h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+}
+.music-player audio {
   width: 100%;
-  margin: 20px 0;
-  border: 2px solid black;
-  border-radius: 6px;
-  filter: grayscale(100%);
+  margin-top: 8px;
 }
-
-/* ============================
-   RESPONSIVE
-============================ */
-@media (max-width: 768px) {
+.footer {
+  margin-top: 20px;
+  border-top: 6px solid #000;
+  padding-top: 10px;
+  font-size: 12px;
+  text-align: center;
+}
+@media (max-width: 880px) {
   .lead {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
-
-  .title {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .masthead .title {
+    font-size: 36px;
+  }
+  .headline h1 {
     font-size: 40px;
   }
-
-  aside {
-    order: 2;
+}
+@media (max-width: 480px) {
+  .cards {
+    grid-template-columns: 1fr;
   }
-
-  .hero img {
-    max-width: 100%;
+  .masthead {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
 }
