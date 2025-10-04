@@ -3,19 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Periódico — Morat: Ya es Mañana</title>
+    <title>Periódico — YEM Parte 1</title>
 
-    <!-- Fuentes Google -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Oswald:wght@300;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,700;1,700&family=Oswald:wght@400;700&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Estilos externos -->
     <link rel="stylesheet" href="estilos.css" />
   </head>
   <body>
-    <!-- Filtro SVG para efecto halftone -->
     <svg width="0" height="0" style="position: absolute">
       <filter id="halftone">
         <feColorMatrix
@@ -52,30 +49,67 @@
     </svg>
 
     <div class="paper">
-      <header class="masthead">
-        <div class="meta">
-          Octubre, 2025 &nbsp;|&nbsp; Edición Especial Morat
+      <header class="masthead" style="position: relative">
+        <div
+          class="side-photo-left"
+          style="
+            position: absolute;
+            left: -60px;
+            top: 0;
+            width: 50px;
+            height: 50px;
+          "
+        >
+          <img
+            src="mly.jpg"
+            alt="Morat"
+            style="width: 100%; height: 100%; object-fit: cover"
+          />
         </div>
-        <div class="title">YA ES MAÑANA</div>
+
+        <div class="meta">
+          Octubre, 2025 &nbsp;|&nbsp; Isa, Simón, Martín, Villa
+        </div>
+        <div
+          class="title"
+          style="
+            font-family: 'Libre Baskerville', serif;
+            font-size: 60px;
+            letter-spacing: 2px;
+          "
+        >
+          EL MUNDO LATINO
+        </div>
         <div class="meta">Tiraje: 10,000 &nbsp;|&nbsp; Bogotá, Colombia</div>
+
+        <div
+          class="side-photo-right"
+          style="
+            position: absolute;
+            right: -60px;
+            top: 0;
+            width: 50px;
+            height: 50px;
+          "
+        >
+          <img
+            src="yp1.jpg"
+            alt="YEM"
+            style="width: 100%; height: 100%; object-fit: cover"
+          />
+        </div>
       </header>
 
       <main>
         <section class="lead">
           <div>
             <div class="hero">
-              <img
-                src="images/hero.jpg"
-                alt="Morat Ya Es Mañana"
-                class="halftone"
-              />
+              <img src="portada.jpg" alt="Morat portada YEM" class="halftone" />
             </div>
 
             <div class="headline">
               <h1>YA ES MAÑANA</h1>
-              <p class="smallcaps">
-                El álbum que marca una nueva etapa creativa de Morat
-              </p>
+              <p class="smallcaps">No hay que vivir por la ventana</p>
             </div>
           </div>
 
@@ -89,18 +123,27 @@
             </p>
 
             <div class="lista">
-              <strong>Lista de canciones</strong>
+              <strong>Lista de canciones — YEM Parte 1</strong>
               <ol>
-                <li>YA ES MAÑANA — 04:58</li>
-                <li>ECLIPSE SOLAR — 03:13</li>
-                <li>DOMINGO DE BAJÓN — 02:56</li>
-                <li>SIN TI — 03:45</li>
+                <li>Faltas Tú</li>
+                <li>Por Si No Te Vuelvo a Ver</li>
+                <li>La Policía</li>
+                <li>Me Toca a Mí</li>
+                <li>Nombre Canción 5</li>
+                <li>Nombre Canción 6</li>
+                <li>Nombre Canción 7</li>
+                <li>Nombre Canción 8</li>
+                <li>Nombre Canción 9</li>
+                <li>Nombre Canción 10</li>
+                <li>Nombre Canción 11</li>
+                <li>Nombre Canción 12</li>
+                <li>Nombre Canción 13</li>
+                <li>Nombre Canción 14</li>
               </ol>
             </div>
           </aside>
         </section>
 
-        <!-- 🎧 Reproductor musical automático -->
         <section class="music-player">
           <h2>Escucha el álbum completo</h2>
           <audio id="player" controls autoplay></audio>
@@ -108,20 +151,19 @@
 
         <script>
           const canciones = [
-            "musica/01-ya-es-manana.mp3",
-            "musica/02-eclipse-solar.mp3",
-            "musica/03-domingo-de-bajon.mp3",
-            "musica/04-sin-ti.mp3",
+            "musica/01-faltas-tu.mp3",
+            "musica/02-por-si-no-te-vuelvo-a-ver.mp3",
+            "musica/03-la-policia.mp3",
+            "musica/04-me-toca-a-mi.mp3",
+            // agrega las otras 10 si las tienes
           ];
 
           let actual = 0;
           const player = document.getElementById("player");
 
-          // Cargar primera canción
           player.src = canciones[actual];
           player.play();
 
-          // Reproducir siguiente al terminar
           player.addEventListener("ended", () => {
             actual = (actual + 1) % canciones.length;
             player.src = canciones[actual];
@@ -130,39 +172,41 @@
         </script>
 
         <section class="sections">
-          <div class="section-title">Noticias</div>
+          <div class="section-title">Singles del álbum</div>
           <div class="cards">
             <article class="card">
               <div class="thumb">
-                <img src="images/thumb1.jpg" alt="Concierto Morat" />
+                <img src="faltas tu.jpg" alt="Faltas Tú" />
               </div>
-              <h3>Morat anuncia gira mundial 2025</h3>
+              <h3>Faltas Tú</h3>
+              <p>Portada del primer single de YEM, lanzado en abril de 2024.</p>
+            </article>
+
+            <article class="card">
+              <div class="thumb">
+                <img src="psntvav.jpg" alt="Por Si No Te Vuelvo a Ver" />
+              </div>
+              <h3>Por Si No Te Vuelvo a Ver</h3>
               <p>
-                La banda confirma su regreso a escenarios internacionales con su
-                tour <em>Ya es Mañana</em>.
+                Portada del segundo single de YEM, lanzado en septiembre de
+                2024.
               </p>
             </article>
 
             <article class="card">
               <div class="thumb">
-                <img src="images/thumb2.jpg" alt="Estudio" />
+                <img src="policia.jpg" alt="La Policía" />
               </div>
-              <h3>El proceso creativo del álbum</h3>
-              <p>
-                Grabado entre Madrid y Bogotá, el disco combina folk,
-                sintetizadores y experimentación sonora.
-              </p>
+              <h3>La Policía</h3>
+              <p>Portada del single grabado en México, mayo de 2024.</p>
             </article>
 
             <article class="card">
               <div class="thumb">
-                <img src="images/thumb3.jpg" alt="Fans" />
+                <img src="toca.jpg" alt="Me Toca a Mí" />
               </div>
-              <h3>Fans reaccionan al nuevo sonido</h3>
-              <p>
-                Los seguidores destacan la madurez de las letras y la evolución
-                de la banda.
-              </p>
+              <h3>Me Toca a Mí</h3>
+              <p>Portada del cuarto single de YEM junto a Camilo.</p>
             </article>
           </div>
         </section>
@@ -171,7 +215,7 @@
       <footer class="footer">
         Diseño: Taller de Tipografía — Inspirado en prensa vintage y estética
         zine.
-        <br />Fotografía y material cortesía de Morat & Universal Music Spain.
+        <br />Fotografía y material cortesía de Morat & YEM Records.
       </footer>
     </div>
   </body>
